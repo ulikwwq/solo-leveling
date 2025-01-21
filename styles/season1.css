@@ -1,0 +1,44 @@
+html {
+    font-size: 16px; /* Это влияет на элементы с размером в em/rem */
+}
+
+
+.episodes-container.static {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Подстраивается под ширину экрана */
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.episode {
+    text-align: center;
+}
+
+.episode img {
+    width: 100%;
+    max-width: 150px; /* Максимальная ширина для контроля размера */
+    height: auto; /* Сохранение пропорций изображения */
+}
+
+
+.episode img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.episode img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.episode p {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #fff;
+}
+
+
+

@@ -1,0 +1,474 @@
+/* Сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ограничение ширины страницы */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Хедер */
+.header {
+    background: linear-gradient(90deg, #3a3a59, #1e1e2f);
+    color: #fff;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Логотип */
+.logo img {
+    width: 150px;
+    height: auto;
+    transition: transform 0.3s;
+    border-radius: 10px;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+/* Меню */
+.header-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.header-menu li {
+    position: relative;
+}
+
+.header-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.header-menu a:hover {
+    color: #ff6b6b;
+    transform: translateY(-2px);
+}
+
+/* Скрытое меню */
+.hidden-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(30, 30, 47, 0.95);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.hidden-menu li {
+    margin: 5px 0;
+}
+
+.hidden-menu a {
+    color: #fff;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.hidden-menu a:hover {
+    color: #ff6b6b;
+}
+
+.submenu:hover .hidden-menu {
+    display: block;
+}
+
+/* Кнопка меню (мобильная версия) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+/* Анимация появления */
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header-menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(30, 30, 47, 0.95);
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        animation: slideDown 0.3s ease;
+    }
+
+    .header-menu.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .logo img {
+        width: 98px;
+    }
+}
+
+/* Основной контент */
+main {
+    background: linear-gradient(90deg, #3a3a59, #1e1e2f);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+}
+
+/* Секции с сезонами */
+.box-serial {
+    background-color: #2a2a3a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.season {
+    background-color: #3a3a59; /* Оттенок для секции */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.season h2 {
+    color: #ff6b6b;
+    margin-bottom: 10px;
+}
+
+/* Контейнер для серий */
+.episodes {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding-bottom: 20px;
+}
+
+.episode {
+    margin: 0 10px; /* Отступы между картинками */
+    text-align: center; /* Центрируем содержимое внутри div */
+    flex: 0 0 auto; /* Предотвращаем сжатие */
+    display: flex; /* Используем flexbox для выравнивания */
+    flex-direction: column; /* Располагаем элементы вертикально */
+    align-items: center; /* Выравниваем по центру */
+    justify-content: center; /* Центрируем по вертикали */
+}
+
+.episode img {
+    width: 100%;
+    max-width: 200px; /* Устанавливаем максимальную ширину */
+    border-radius: 10px; /* Слегка закругляем углы */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Добавляем тень */
+    transition: transform 0.3s ease; /* Плавный переход при наведении */
+    border: 2px solid #ddd;
+}
+
+.episode img:hover {
+    transform: scale(1.05);
+}
+
+.episode p {
+    margin-top: 10px; /* Отступ между изображением и текстом */
+    color: #fff; /* Белый цвет текста */
+    font-size: 1rem; /* Размер шрифта */
+    text-align: center; /* Центрируем текст */
+}
+
+.episode a {
+    display: block;
+    text-decoration: none;
+}
+
+/* Кнопки прокрутки */
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 100;
+}
+
+.scroll-button:hover {
+    background-color: #ff3b3b;
+}
+
+.scroll-left {
+    left: 0;
+}
+
+.scroll-right {
+    right: 0;
+}
+
+/* Прокрутка серий */
+.episodes::-webkit-scrollbar {
+    height: 8px;
+}
+
+.episodes::-webkit-scrollbar-thumb {
+    background-color: #ff6b6b;
+    border-radius: 4px;
+}
+
+.episodes::-webkit-scrollbar-track {
+    background-color: #2a2a3a;
+}
+
+/* Стили для слайдера */
+.episodes-slider {
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.episode {
+    margin: 0 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.episode img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.episode p {
+    margin-top: 5px;
+    color: #fff;
+}
+
+/* Кнопки прокрутки */
+.scroll-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 2rem;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.scroll-left {
+    left: 0;
+}
+
+.scroll-right {
+    right: 0;
+}
+
+.scroll-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Стиль для активного слайдера */
+.slick-prev, .slick-next {
+    font-size: 2rem;
+    color: #fff;
+}
+
+/* Контейнер для слайдера и стрелок */
+.episodes-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Стили для слайдера */
+.episodes-slider {
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+}
+
+/* Стиль для каждой серии */
+.episode {
+    margin: 0 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: #fff;
+}
+
+.episode img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.episode p {
+    margin-top: 5px;
+    color: #fff;
+}
+
+/* Кнопки прокрутки */
+.scroll-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 2rem;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.scroll-left {
+    left: 10px;  /* Немного отступаем от левого края */
+}
+
+.scroll-right {
+    right: 10px; /* Немного отступаем от правого края */
+}
+
+/* Плавность нажатия */
+.scroll-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Стиль для активного слайдера */
+.slick-prev, .slick-next {
+    font-size: 2rem;
+    color: #fff;
+}
+
+/* Убедитесь, что стрелки не перекрывают слайдер */
+.episodes-container {
+    position: relative;
+}
+
+footer {
+    background: linear-gradient(90deg, #3a3a59, #1e1e2f);
+    color: #fff;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.footer-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Cinzel Decorative', serif;
+}
+
+.footer-logo:hover {
+    color: #ff6b6b;
+    transform: translateY(-2px);
+}
+
+.footer-nav a {
+    margin: 0 15px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-nav a:hover {
+    color: #ff6b6b;
+    transform: translateY(-2px);
+}
+
+.footer-contact a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-contact a:hover {
+    color: #ff6b6b;
+    transform: translateY(-2px);
+}
+
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-nav {
+        margin: 10px 0;
+    }
+    .footer-contact {
+        margin-top: 10px;
+    }
+}
+
