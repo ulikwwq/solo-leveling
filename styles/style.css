@@ -495,3 +495,13 @@ footer {
     height: 100%;
     border: none;
 }
+
+/* Скрыть иконку ВКонтакте */
+.vk_video { 
+    display: none; 
+}
+
+/* Скрыть название видео */
+.video_title {
+    display: none;
+}
