@@ -496,12 +496,12 @@ footer {
     border: none;
 }
 
-/* Скрыть иконку ВКонтакте */
-.vk_video { 
-    display: none; 
+/* Скрыть название видео */
+.videoplayer_title_link._clickable {
+    display: none;
 }
 
-/* Скрыть название видео */
-.video_title {
+/* Скрыть иконку и ссылку на ВКонтакте */
+.videoplayer_controls_item.videoplayer_btn.videoplayer_btn_vk_video {
     display: none;
 }
